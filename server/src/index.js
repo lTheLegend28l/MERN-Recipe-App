@@ -1,9 +1,10 @@
 import express from "express";
-// import * as dotenv from "dotenv";
+import * as dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
 import passport from "passport";
 import bcrypt from "bcrypt";
+import os from "node:os";
 import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import { Strategy as LocalStrategy } from "passport-local";
 import { User } from "./models/Users.js";
@@ -12,8 +13,8 @@ import { recipesRouter } from "./routes/recipes.js";
 
 // Middleware Config
 // Dotenv
-// dotenv.config();
-const password = process.env.password;
+dotenv.config();
+const password = process.env.PASSWORD;
 
 // Express
 const app = express();
@@ -25,7 +26,7 @@ app.use(passport.initialize());
 
 let opts = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: "password",
+  secretOrKey: process.env.SECRETORKEY,
 };
 
 passport.use(
@@ -77,6 +78,8 @@ app.use(
 );
 
 async function main() {
+  var networkInterfaces = os.networkInterfaces();
+  console.log(networkInterfaces);
   await mongoose.connect(
     `mongodb+srv://pradyuntandra:${password}@recipes.fasj8m7.mongodb.net/recipes?retryWrites=true&w=majority`
   );
@@ -85,6 +88,6 @@ async function main() {
 main();
 
 // Server
-app.listen(3001, () => {
+app.listen(process.env.PORT || 3001, () => {
   console.log("Server running on port 3001");
 });
