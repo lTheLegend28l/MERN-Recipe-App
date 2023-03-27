@@ -25,7 +25,7 @@ app.use(passport.initialize());
 
 let opts = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: process.env.secretOrKey,
+  secretOrKey: process.env.password,
 };
 
 passport.use(
