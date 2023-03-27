@@ -1,8 +1,0 @@
-{
-  "name": "my-app",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "cd server && npm install && cd ../client/my-app && npm install && npm run build",
-    "start": "cd server && npm start"
-  }
-}
