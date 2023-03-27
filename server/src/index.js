@@ -85,7 +85,6 @@ async function main() {
 main();
 
 // Server
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log("Server running on port " + port);
+app.listen(3001, () => {
+  console.log("Server running on port 3001");
 });
