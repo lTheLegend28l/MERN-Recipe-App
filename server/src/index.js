@@ -13,7 +13,7 @@ import { recipesRouter } from "./routes/recipes.js";
 // Middleware Config
 // Dotenv
 // dotenv.config();
-console.log("Env variables: ", process.env.PASSWORD, process.env.SECRET, process.env.SECRETORKEY");
+console.log("Env variables: ", process.env.PASSWORD, process.env.SECRET, process.env.SECRETORKEY);
 const password = process.env.PASSWORD;
 
 // Express
