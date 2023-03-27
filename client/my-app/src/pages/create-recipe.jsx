@@ -38,7 +38,7 @@ export const CreateRecipe = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(https://recipez-server.onrender.com:10000/recipes", recipe, {
+      await axios.post("https://recipez-server.onrender.com:10000/recipes", recipe, {
         headers: { Authorization: "Bearer " + cookies.access_token },
       });
       alert("Recipe created");
