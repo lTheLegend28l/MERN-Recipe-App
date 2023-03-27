@@ -1,0 +1,13 @@
+version: "1"
+build:
+  steps:
+    - name: "Install Dependencies"
+      command: "npm install"
+    - name: "Build"
+      command: "npm run build"
+  artifacts:
+    - path: "dist/**/*"
+deploy:
+  steps:
+    - name: "Deploy to Server"
+      command: "npm run start"
