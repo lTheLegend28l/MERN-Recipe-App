@@ -6,8 +6,8 @@ build:
     - name: "Build"
       command: "npm run build"
   artifacts:
-    - path: "dist/**/*"
+    - path: "../client/my-app/build/**/*"
 deploy:
   steps:
     - name: "Deploy to Server"
-      command: "npm run start"
+      command: "npm start"
