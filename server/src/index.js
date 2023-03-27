@@ -80,12 +80,11 @@ async function main() {
   await mongoose.connect(
     `mongodb+srv://pradyuntandra:${password}@recipes.fasj8m7.mongodb.net/recipes?retryWrites=true&w=majority`
   );
+  // Server
+  const port = process.env.PORT || 3000;
+  await app.listen(port, () => {
+  console.log("Server running on port + " process.env.PORT);
+});
 }
 
 main();
-
-// Server
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log("Server running on port 3001");
-});
