@@ -12,7 +12,7 @@ export const SavedRecipes = () => {
     const fetchSavedRecipe = async () => {
       try {
         const response = await axios.get(
-          `https://recipez-server.onrender.com:10000/recipes/savedRecipes/${userID}`,
+          `https://recipez-server.onrender.com:443/recipes/savedRecipes/${userID}`,
           {
             headers: { Authorization: "Bearer " + cookies.access_token },
           }
