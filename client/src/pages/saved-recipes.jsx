@@ -15,7 +15,7 @@ export const SavedRecipes = () => {
     const fetchSavedRecipe = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/recipes/savedRecipes/${userID}`,
+          `https://recipez-server.onrender.com/recipes/savedRecipes/${userID}`,
           {
             headers: { Authorization: "Bearer " + cookies.access_token },
           }

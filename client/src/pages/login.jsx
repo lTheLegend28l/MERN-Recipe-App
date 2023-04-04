@@ -42,7 +42,7 @@ const LoginForm = () => {
     // Using axios to make a post request to server
     try {
       console.log(username, password);
-      const response = await axios.post("http://localhost:3001/auth/login", {
+      const response = await axios.post("https://recipez-server.onrender.com/auth/login", {
         username,
         password,
       });

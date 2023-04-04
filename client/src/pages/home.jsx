@@ -15,7 +15,7 @@ export const Home = () => {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/recipes", {
+        const response = await axios.get("https://recipez-server.onrender.com/recipes", {
           headers: { Authorization: "Bearer " + cookies.access_token },
         });
         setRecipes(response.data);
@@ -27,7 +27,7 @@ export const Home = () => {
     const fetchSavedRecipe = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/recipes/savedRecipes/ids/${userID}`,
+          `https://recipez-server.onrender.com/recipes/savedRecipes/ids/${userID}`,
           { headers: { Authorization: "Bearer " + cookies.access_token } }
         );
         setSavedRecipes(response.data.savedRecipes);
@@ -43,7 +43,7 @@ export const Home = () => {
   const saveRecipe = async (recipeID) => {
     try {
       const response = await axios.put(
-        "http://localhost:3001/recipes",
+        "https://recipez-server.onrender.com/recipes",
         {
           recipeID: recipeID,
           userID: userID

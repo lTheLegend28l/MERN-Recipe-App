@@ -36,7 +36,7 @@ const RegisterForm = () => {
   
       // Using axios to make a post request to server
       try {
-        await axios.post("http://localhost:3001/auth/register", {
+        await axios.post("https://recipez-server.onrender.com/auth/register", {
           username,
           password,
         });
