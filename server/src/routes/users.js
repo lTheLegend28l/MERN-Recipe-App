@@ -1,12 +1,12 @@
 import express from "express";
 import passport from "passport";
-// import * as dotenv from "dotenv";
+import * as dotenv from "dotenv";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { User } from "../models/Users.js";
 
 // Middleware config
-// dotenv.config();
+dotenv.config();
 const router = express.Router();
 
 router.post("/register", async (req, res) => {
