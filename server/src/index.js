@@ -1,5 +1,5 @@
 import express from "express";
-import * as dotenv from "dotenv";
+// import * as dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
 import passport from "passport";
@@ -12,7 +12,7 @@ import { recipesRouter } from "./routes/recipes.js";
 
 // Middleware Config
 // Dotenv
-dotenv.config();
+// dotenv.config();
 const password = process.env.PASSWORD;
 
 // Express
