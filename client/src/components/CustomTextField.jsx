@@ -9,9 +9,6 @@ export const CustomTextField = styled(TextField)({
     borderColor: '#fb5607',
   },
   "& .MuiInputLabel-root": {
-    color: "#fb5607"
-  },
-  "& .css-1d6u1w6-MuiFormLabel-root-MuiInputLabel-root": {
     color: "#fb5607 !important"
-  }
+  },
 });

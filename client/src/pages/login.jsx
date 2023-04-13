@@ -3,11 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import AuthForm from "../components/AuthForm";
 import axios from "axios";
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 export const Login = () => {
-
   const theme = useTheme();
 
   return (
@@ -15,7 +14,7 @@ export const Login = () => {
       className="loginContainer"
       maxWidth={false}
       sx={{
-        height: "90vh",
+        minHeight: "94vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -23,7 +22,9 @@ export const Login = () => {
       }}
       disableGutters
     >
-      <LoginForm />
+      <Box mx={3}>
+        <LoginForm />
+      </Box>
     </Container>
   );
 };
@@ -42,10 +43,13 @@ const LoginForm = () => {
     // Using axios to make a post request to server
     try {
       console.log(username, password);
-      const response = await axios.post("https://recipez-server.onrender.com:443/auth/login", {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "https://recipez-server.onrender.com:443/auth/login",
+        {
+          username,
+          password,
+        }
+      );
       // Set accesstoken cookie and then set userID in localStorage
       setCookies("access_token", response.data.token);
       window.localStorage.setItem("userID", response.data.userID);

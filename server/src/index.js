@@ -1,5 +1,5 @@
 import express from "express";
-// import * as dotenv from "dotenv";
+import * as dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
 import passport from "passport";
@@ -12,8 +12,7 @@ import { recipesRouter } from "./routes/recipes.js";
 
 // Middleware Config
 // Dotenv
-// dotenv.config();
-console.log("Env variables: ", process.env.PASSWORD, process.env.SECRET, process.env.SECRETORKEY);
+dotenv.config();
 const password = process.env.PASSWORD;
 
 // Express
@@ -26,7 +25,7 @@ app.use(passport.initialize());
 
 let opts = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: "secret",
+  secretOrKey: process.env.SECRETORKEY,
 };
 
 passport.use(
@@ -78,9 +77,7 @@ app.use(
 );
 
 async function main() {
-  await mongoose.connect(
-    `mongodb+srv://PradyunTandra:${process.env.PASSWORD}@cluster0.ozyrvyg.mongodb.net/?retryWrites=true&w=majority`
-  );
+  await mongoose.connect(`mongodb+srv://pradyuntandra:${password}@recipes.fasj8m7.mongodb.net/recipes?retryWrites=true&w=majority`)
 }
 
 main();

@@ -59,7 +59,7 @@ export const CreateRecipe = () => {
     <Container
       maxWidth={false}
       sx={{
-        minHeight: "90vh",
+        minHeight: "94vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -76,14 +76,17 @@ export const CreateRecipe = () => {
       </Box>
       <Box
         mb={2}
+        mx={3}
         sx={{
-          maxWidth: "45vw",
           display: "flex",
           flexDirection: "column",
           backgroundColor: theme.palette.customColor.light,
           boxShadow: "10",
           borderRadius: "20px",
           padding: "4 0",
+          "@media (min-width: 640px)": {
+            maxWidth: "45vw",
+          },
         }}
       >
         <Box

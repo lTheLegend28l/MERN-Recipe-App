@@ -69,26 +69,31 @@ export const Home = () => {
         alignItems: "center",
         background: theme.palette.customColor.bg,
         color: "white",
+        minHeight: "94vh",
       }}
       disableGutters
     >
       <Box>
-        <Typography variant="h3" sx={{ mb: "16px" }}>
+        <Typography variant="h3" mt={3} sx={{ mb: "16px" }}>
           Recipes
         </Typography>
       </Box>
+      <Box mx={3}>
       {recipes.map((recipe) => (
         <Recipe
           id={recipe._id}
           key={recipe._id}
           name={recipe.name}
+          button={true}
           saveRecipe={saveRecipe}
           isRecipeSaved={isRecipeSaved(recipe._id)}
           imageUrl={recipe.imageUrl}
           cookingTime={recipe.cookingTime}
+          ingredients={recipe.ingredients}
           instructions={recipe.instructions}
         />
       ))}
+      </Box>
     </Container>
   );
 };

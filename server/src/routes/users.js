@@ -28,7 +28,7 @@ router.post("/register", async (req, res) => {
     const savedUser = await newUser.save();
 
     // Create jwt token
-    const token = jwt.sign({ sub: savedUser._id }, "secret", {
+    const token = jwt.sign({ sub: savedUser._id }, process.env.secretOrKey, {
       expiresIn: "1h",
     });
 
@@ -41,6 +41,7 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", (req, res, next) => {
+  console.log(req.body);
   // Authenticate the user with local strategy
   passport.authenticate("local", { session: false }, (err, user, info) => {
     if (err) {
@@ -50,7 +51,8 @@ router.post("/login", (req, res, next) => {
       return res.status(401).json({ message: "Invalid username or password" });
     }
     // Send jwt token to user
-    const token = jwt.sign({ sub: user._id }, "secret");
+    console.log(user);
+    const token = jwt.sign({ sub: user._id }, process.env.secretOrKey);
     return res.json({ token, userID: user._id });
   })(req, res, next);
 });

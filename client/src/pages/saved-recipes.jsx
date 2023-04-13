@@ -41,23 +41,29 @@ export const SavedRecipes = () => {
         alignItems: "center",
         background: theme.palette.customColor.bg,
         color: "white",
+        minHeight: "94vh"
       }}
       disableGutters
     >
       <Box>
-        <Typography variant="h3" sx={{ mb: "16px" }}>
+        <Typography variant="h3" mt={3} sx={{ mb: "16px" }}>
           Saved Recipes
         </Typography>
       </Box>
-      {savedRecipes.map((recipe) => (
-        <Recipe
-          _id={recipe._id}
-          name={recipe.name}
-          imageUrl={recipe.imageUrl}
-          cookingTime={recipe.cookingTime}
-          instructions={recipe.instructions}
-        />
-      ))}
+      <Box mx={3}>
+        {savedRecipes.map((recipe) => (
+          <Recipe
+            id={recipe._id}
+            key={recipe._id}
+            name={recipe.name}
+            imageUrl={recipe.imageUrl}
+            cookingTime={recipe.cookingTime}
+            ingredients={recipe.ingredients}
+            instructions={recipe.instructions}
+            button={false}
+          />
+        ))}
+      </Box>
     </Container>
   );
 };
