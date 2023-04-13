@@ -1,5 +1,4 @@
 import express from "express";
-// import * as dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
 import passport from "passport";
@@ -8,16 +7,10 @@ import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import { Strategy as LocalStrategy } from "passport-local";
 import { User } from "./models/Users.js";
 import { Recipe } from "./models/Recipes.js";
-// import { userRouter } from "./routes/users.js";
-// import { recipesRouter } from "./routes/recipes.js";
 import jwt from "jsonwebtoken";
 
 // Middleware Config
-// Dotenv
-// dotenv.config();
 const password = process.env.PASSWORD;
-console.log("process.env.password in index.js" + process.env.PASSWORD);
-console.log("process.env.secretorkey in index.js" + process.env.SECRETORKEY);
 
 // Express
 const app = express();
